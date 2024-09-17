@@ -1,0 +1,252 @@
+body {
+  background-image: url(https://i.pinimg.com/originals/59/29/77/59297765ef446a27cd53cb3b38637aa0.jpg);
+  background-size: cover;
+  animation: gradientAnimation 10s ease infinite;
+  margin: 0;
+  overflow: hidden; /* Prevent horizontal scrollbars */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 50% 20%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+#3d-glass {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.parent-body-div {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  opacity: 0; /* Start invisible */
+  transform: translateY(10px); /* Start with a smaller translation */
+  animation: fadeInUp 1.5s ease forwards; /* Slightly shorter animation */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* Reduced initial translation */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* No translation at the end */
+  }
+}
+
+.parent-body-div-content {
+  text-align: center;
+  font-family: "Tomorrow", sans-serif;
+  color: #00FFFF; /* Cyan for a techy feel */
+  text-shadow: 0 0 1px #00FFFF, 0 0 5px #00FFFF, 0 0 10px #00FFFF; /* Glowing effect for text */
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px; /* Space between buttons and code snippet */
+}
+
+.btn {
+  text-decoration: none;
+  font-weight: lighter;
+  margin-top: 10px;
+  background-color: #1a1a1a; /* Dark background for a sleek look */
+  color: #00FFFF; /* Cyan text */
+  font-family: "Tomorrow", sans-serif;
+  font-weight: bold;
+  border: 1px solid #00FFFF; /* Cyan border */
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-inline: 10px;
+  transition: background-color 0.3s, color 0.3s, border 0.3s, margin-inline 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 5px #00FFFF, 0 0 20px #00FFFF, 0 0 10px #00FFFF; /* Glowing effect for buttons */
+}
+
+.btn:hover {
+  background-color: #00FFFF; /* Light cyan on hover */
+  color: #1a1a1a; /* Dark background text on hover */
+  border: 1px solid #00FFFF;
+  cursor: pointer;
+  margin-inline: 10px;
+  box-shadow: 0 0 15px #00FFFF, 0 0 25px #00FFFF, 0 0 35px #00FFFF; /* Enhanced glow on hover */
+}
+
+.social-icons {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
+  z-index: 2; /* Ensure it's below the code snippet */
+}
+
+.social-icon {
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icon-img {
+  font-size: 23px; /* Adjust size to your preference */
+  color: #00FFFF; /* Color of the icon */
+  filter: drop-shadow(0 0 2px #00FFFF); /* Minimal glowing effect */
+  transition: 0.2s;
+}
+
+.social-icon:hover .social-icon-img {
+  transform: scale(1.1); /* Slightly enlarges the icon on hover */
+  filter: drop-shadow(0 0 5px #00FFFF); /* Enhanced glow on hover */
+}
+#profile-picture{
+  border-radius: 50%;
+  transition: 0.4s;
+}
+#profile-picture:hover{
+  transform: scale(1.1);
+}
+/* Loader container to center spinners */
+/* Loader container to center spinners */
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(3, 27, 34); /* Semi-transparent background */
+  z-index: 9999; /* Ensures the loader stays on top */
+  transition: transform 1s ease; /* Smooth transition for sliding out */
+}
+
+/* Keyframes for sliding out */
+@keyframes slideOut {
+  0% {
+    transform: translateY(0); /* Start at the original position */
+  }
+  100% {
+    transform: translateY(-100%); /* Slide out of view */
+  }
+}
+
+/* Apply the slide-out animation */
+#loader.slide-out {
+  animation: slideOut 0.5s forwards; /* Slide out animation */
+}
+
+/* Bootstrap spinner-grow custom size and spacing */
+.spinner-grow {
+  width: 3rem; /* Customize size if needed */
+  height: 3rem; /* Customize size if needed */
+  margin: 0 0.5rem;
+  border-radius: 50%; /* Circular shape */
+}
+
+/* Spinner animation keyframes for a grow effect */
+@keyframes grow-spin {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(0.7);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+}
+
+/* Apply the grow-spin animation to the spinners */
+.spinner-grow {
+  animation: grow-spin 1.5s infinite ease-in-out;
+}
+
+/* Optional: Customize spinner colors */
+.text-primary {
+  background-color: #007bff;
+}
+
+.text-secondary {
+  background-color: #6c757d;
+}
+
+.text-success {
+  background-color: #28a745;
+}
+
+.form-container {
+  opacity: 0;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #111; /* Darker black container */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  animation: fadeInUp 0.7s ease forwards; /* Slightly shorter animation */
+
+}
+
+.form-control {
+  background-color: transparent;
+  border: 1px solid #00FFFF;
+  color: #00FFFF;
+}
+
+.form-control:focus {
+  border-color: #00FFFF;
+  box-shadow: none; /* Remove glow on focus */
+}
+
+.btn-submit {
+  background-color: #00FFFF;
+  color: #000;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-submit:hover {
+  background-color: #00e0e0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label {
+  font-family: "Tomorrow", sans-serif;
+  color: #00FFFF;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* Reduced initial translation */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* No translation at the end */
+  }
+}
+#home{
+  animation: fadeInUp 0.7s ease forwards; /* Slightly shorter animation */
+}
